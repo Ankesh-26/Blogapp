@@ -8,5 +8,6 @@ module.exports=(app)=>{
     app.delete('/api/delete/:blogID',blog.deleteone);
     app.get('/api/blogt/:byTitle',blog.byTitle);
     app.get('/api/bloga/:byAuthor',blog.byAuthor);
+    app.get('/api/blogd/:byDesc',blog.byDesc);
     
 }
