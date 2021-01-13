@@ -23,13 +23,16 @@ mongoose.connect(process.env.MONGO_URL,{ useNewUrlParser: true, useUnifiedTopolo
 app.get('/',(req,res)=>{
     res.send("Welcome to the class");
 });
+app.use('*',(req,res,next)=>{
+    res.status(404).json({"msg":"Not found"});
+});
 // app.get('/check',(req,res)=>{
 //     res.send("checking");
 // })
 
 require('./routes/routes')(app);
 
-const Port=3000;
+const Port= process.env.PORT||3000;
 
 app.listen(Port,(err)=>{
     if(err) console.log(err);
